@@ -24,17 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-	<?php
-	?>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+            'id',
+            'user_id',
             'date',
             'title',
-			[
-				'label' => 'Автор',
-				'value' => $model->user->username,
-			],
             'body:ntext',
         ],
     ]) ?>

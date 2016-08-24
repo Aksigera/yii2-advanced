@@ -13,7 +13,6 @@ $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../config/main.php'),
     require(__DIR__ . '/../config/main-local.php')
 );
-\Tmpl::var_dump(__FILE__, 'start');
 
 $application = new yii\web\Application($config);
 $application->run();

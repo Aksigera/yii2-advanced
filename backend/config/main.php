@@ -5,24 +5,24 @@ $params = array_merge(
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
-
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
-        'admin' => [
+        'rbac' => [
             'class' => 'mdm\admin\Module',
             'controllerMap' => [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
-                    /* 'userClassName' => 'app\models\User', */
+                     'userClassName' => 'common\models\User',
                     'idField' => 'id',
                     'usernameField' => 'username',
-                    'fullnameField' => 'profile.full_name',
                 ],
             ],
+            'layout' => 'left-menu',
+            'mainLayout' => '@app/views/layouts/main.php',
         ]
     ],
     'components' => [
@@ -31,11 +31,10 @@ return [
         ],
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'loginUrl' => ['site/login'],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the backend
+            // this is the name of the session coo kie used for login on the backend
             'name' => 'advanced-backend',
         ],
         'log' => [
@@ -58,8 +57,6 @@ return [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            'admin/*',
-            'post/*',
         ]
     ],
     'params' => $params,

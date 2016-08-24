@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/backend/web/.htaccess" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/console/migrations/m160811_091831_create_post.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/frontend/web/.htaccess" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
